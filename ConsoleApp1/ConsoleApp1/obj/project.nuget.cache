@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "WFeH1TDW2FUTUWjSAbj/dWe62UAoQpkyskUkWQ5clKkjpXHs0DkbtsjnLQgtzDd5obMIEHZbfpWxNEbnuae/Qw==",
+  "success": true,
+  "projectFilePath": "D:\\Github\\C#\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\OS\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\OS\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\OS\\.nuget\\packages\\wpf-ui\\1.2.2\\wpf-ui.1.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}

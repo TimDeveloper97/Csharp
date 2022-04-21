@@ -1,0 +1,3795 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WPFUI</name>
+    </assembly>
+    <members>
+        <member name="T:WPFUI.Appearance.Accent">
+            <summary>
+            Lets you update the color accents of the application.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Accent.SystemAccent">
+            <summary>
+            SystemAccentColor
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Accent.PrimaryAccent">
+            <summary>
+            SystemAccentColorLight1.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Accent.SecondaryAccent">
+            <summary>
+            SystemAccentColorLight2.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Accent.TertiaryAccent">
+            <summary>
+            SystemAccentColorLight3.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Accent.Change(System.Windows.Media.Color,WPFUI.Appearance.ThemeType,System.Boolean)">
+            <summary>
+            Changes the color accents of the application based on the color entered.
+            </summary>
+            <param name="systemAccent">Primary accent color.</param>
+            <param name="themeType">If <see cref="F:WPFUI.Appearance.ThemeType.Dark"/>, the colors will be different.</param>
+            <param name="systemGlassColor">If the color is taken from the Glass Color System, its brightness will be increased with the help of the operations on HSV space.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Accent.Change(System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Changes the color accents of the application based on the entered colors.
+            </summary>
+            <param name="systemAccent">Primary color.</param>
+            <param name="primaryAccent">Alternative light or dark color.</param>
+            <param name="secondaryAccent">Second alternative light or dark color (most used).</param>
+            <param name="tertiaryAccent">Third alternative light or dark color.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Accent.GetColorizationColor">
+            <summary>
+            Gets current Desktop Window Manager colorization color.
+            <para>It should be the color defined in the system Personalization.</para>
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Accent.UpdateColorResources(System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Updates application resources.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.AppearanceData">
+            <summary>
+            Singleton container for appearance data.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.AppearanceData.LibraryNamespace">
+            <summary>
+            Namespace for the XAML dictionaries.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.AppearanceData.LibraryThemeDictionariesUri">
+            <summary>
+            Default <see cref="T:System.Uri"/> for the application theme dictionaries.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.AppearanceData.SystemTheme">
+            <summary>
+            Current system theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.AppearanceData.ApplicationTheme">
+            <summary>
+            Current application theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.AppearanceData.Handlers">
+            <summary>
+            Collection of handlers that have a background effect applied.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.Background">
+            <summary>
+            Lets you apply background effects to <see cref="T:System.Windows.Window"/> or <c>hWnd</c> by its <see cref="T:System.IntPtr"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.IsSupported(WPFUI.Appearance.BackgroundType)">
+            <summary>
+            Checks if the current <see cref="P:System.Environment.OSVersion"/> supports selected <see cref="T:WPFUI.Appearance.BackgroundType"/>.
+            </summary>
+            <param name="type">Background type to check.</param>
+            <returns><see langword="true"/> if <see cref="T:WPFUI.Appearance.BackgroundType"/> is supported.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.Apply(System.Windows.Window,WPFUI.Appearance.BackgroundType)">
+            <summary>
+            Applies selected background effect to <see cref="T:System.Windows.Window"/> when is rendered.
+            </summary>
+            <param name="window">Window to apply effect.</param>
+            <param name="type">Background type.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.Apply(System.IntPtr,WPFUI.Appearance.BackgroundType)">
+            <summary>
+            Applies selected background effect to <c>hWnd</c> by it's pointer.
+            </summary>
+            <param name="handle">Pointer to the window handle.</param>
+            <param name="type">Background type.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.Remove(System.Windows.Window)">
+            <summary>
+            Tries to remove background effects if they have been applied to the <see cref="T:System.Windows.Window"/>.
+            </summary>
+            <param name="window">The window from which the effect should be removed.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.Remove(System.IntPtr)">
+            <summary>
+            Tries to remove all effects if they have been applied to the <c>hWnd</c>.
+            </summary>
+            <param name="handle">Pointer to the window handle.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.ApplyDarkMode(System.Windows.Window)">
+            <summary>
+            Tries to inform the operating system that this window uses dark mode.
+            </summary>
+            <param name="window">Window to apply effect.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.ApplyDarkMode(System.IntPtr)">
+            <summary>
+            Tries to inform the operating system that this <c>hWnd</c> uses dark mode.
+            </summary>
+            <param name="handle">Pointer to the window handle.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.RemoveDarkMode(System.Windows.Window)">
+            <summary>
+            Tries to clear the dark theme usage information.
+            </summary>
+            <param name="window">Window to remove effect.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.RemoveDarkMode(System.IntPtr)">
+            <summary>
+            Tries to clear the dark theme usage information.
+            </summary>
+            <param name="handle">Pointer to the window handle.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Background.RemoveTitleBar(System.IntPtr)">
+            <summary>
+            Tries to remove default TitleBar from <c>hWnd</c>.
+            </summary>
+            <param name="handle">Pointer to the window handle.</param>
+            <returns><see langowrd="false"/> is problem occurs.</returns>
+        </member>
+        <member name="T:WPFUI.Appearance.BackgroundType">
+            <summary>
+            Collection of fluent background types.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.BackgroundType.Unknown">
+            <summary>
+            Unknown background type.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.BackgroundType.Auto">
+            <summary>
+            Sets <c>DWMWA_SYSTEMBACKDROP_TYPE</c> to <see cref="!:langword">0</see>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.BackgroundType.Mica">
+            <summary>
+            Windows 11 Mica effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.BackgroundType.Acrylic">
+            <summary>
+            Windows Acrylic effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.BackgroundType.Tabbed">
+            <summary>
+            Windows 11 wallpaper blur effect.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.ResourceDictionaryManager">
+            <summary>
+            Allows managing application dictionaries.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.ResourceDictionaryManager.SearchNamespace">
+            <summary>
+            Namespace, e.g. the library the resource is being searched for.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.ResourceDictionaryManager.HasDictionary(System.String)">
+            <summary>
+            Shows whether the application contains the <see cref="T:System.Windows.ResourceDictionary"/>.
+            </summary>
+            <param name="resourceLookup">Any part of the resource name.</param>
+            <returns><see langword="false"/> if it doesn't exist.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.ResourceDictionaryManager.GetDictionary(System.String)">
+            <summary>
+            Gets the <see cref="T:System.Windows.ResourceDictionary"/> if exists.
+            </summary>
+            <param name="resourceLookup">Any part of the resource name.</param>
+            <returns><see cref="T:System.Windows.ResourceDictionary"/>, <see langword="null"/> if it doesn't exist.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.ResourceDictionaryManager.UpdateDictionary(System.String,System.Uri)">
+            <summary>
+            Shows whether the application contains the <see cref="T:System.Windows.ResourceDictionary"/>.
+            </summary>
+            <param name="resourceLookup">Any part of the resource name.</param>
+            <param name="newResourceUri">A valid <see cref="T:System.Uri"/> for the replaced resource.</param>
+            <returns></returns>
+        </member>
+        <member name="P:WPFUI.Appearance.SystemTheme.GlassColor">
+            <summary>
+            Gets the current main color of the system.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WPFUI.Appearance.SystemTheme.HighContrast">
+            <summary>
+            Determines whether the system is currently set to hight contrast mode.
+            </summary>
+            <returns><see langword="true"/> if <see cref="P:System.Windows.SystemParameters.HighContrast"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.SystemTheme.GetTheme">
+            <summary>
+            Gets currently set system theme based on <see cref="T:Microsoft.Win32.Registry"/> value.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.SystemThemeType">
+            <summary>
+            Collection of Windows 11 themes.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Unknown">
+            <summary>
+            Unknown Windows theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Custom">
+            <summary>
+            Custom Windows theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Light">
+            <summary>
+            Default light theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Dark">
+            <summary>
+            Default dark theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Glow">
+            <summary>
+            First custom, kinda purple Windows 11 theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.CapturedMotion">
+            <summary>
+            Second custom, kinda red Windows 11 theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Sunrise">
+            <summary>
+            Third custom, kinda washed off cyan Windows 11 theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.SystemThemeType.Flow">
+            <summary>
+            Fourth custom, kinda gray Windows 11 theme.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.Theme">
+            <summary>
+            Allows to manage available color themes from the library.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Appearance.Theme.Changed">
+            <summary>
+            Event triggered when the application's theme is changed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.IsHighContrast">
+            <summary>
+            Gets a value that indicates whether the application is currently using the high contrast theme.
+            </summary>
+            <returns><see langword="true"/> if application uses high contrast theme.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.IsSystemHighContrast">
+            <summary>
+            Gets a value that indicates whether the Windows is currently using the high contrast theme.
+            </summary>
+            <returns><see langword="true"/> if system uses high contrast theme.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.Set(WPFUI.Appearance.ThemeType,WPFUI.Appearance.BackgroundType,System.Boolean)">
+            <summary>
+            Changes the current application theme.
+            </summary>
+            <param name="themeType">Theme to set.</param>
+            <param name="backgroundEffect">Whether the custom background effect should be applied.</param>
+            <param name="updateAccent">Whether the color accents should be changed.</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.GetAppTheme">
+            <summary>
+            Gets currently set application theme.
+            </summary>
+            <returns><see cref="F:WPFUI.Appearance.ThemeType.Unknown"/> if something goes wrong.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.GetSystemTheme">
+            <summary>
+            Gets currently set system theme.
+            </summary>
+            <returns><see cref="F:WPFUI.Appearance.SystemThemeType.Unknown"/> if something goes wrong.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.IsAppMatchesSystem">
+            <summary>
+            Gets a value that indicates whether the application is matching the system theme.
+            </summary>
+            <returns><see langword="true"/> if the application has the same theme as the system.</returns>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.IsMatchedDark">
+            <summary>
+            Checks if the application and the operating system are currently working in a dark theme.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.FetchApplicationTheme">
+            <summary>
+            Tries to guess the currently set application theme.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.FetchSystemTheme">
+            <summary>
+            Tries to guess the currently set system theme.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Theme.UpdateBackground(WPFUI.Appearance.ThemeType,WPFUI.Appearance.BackgroundType)">
+            <summary>
+            Forces change to application background. Required if custom background effect was previously applied.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.ThemeChangedEvent">
+            <summary>
+            Event triggered when application theme is updated.
+            </summary>
+            <param name="currentTheme">Current application <see cref="T:WPFUI.Appearance.ThemeType"/>.</param>
+            <param name="systemAccent">Current base system accent <see cref="T:System.Windows.Media.Color"/>.</param>
+        </member>
+        <member name="T:WPFUI.Appearance.ThemeType">
+            <summary>
+            Collection of application themes.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.ThemeType.Unknown">
+            <summary>
+            Unknown application theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.ThemeType.Dark">
+            <summary>
+            Dark application theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.ThemeType.Light">
+            <summary>
+            Light application theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Appearance.ThemeType.HighContrast">
+            <summary>
+            High contract application theme.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Appearance.Watcher">
+            <summary>
+            Automatically updates the application background if the system theme or color is changed.
+            <para><see cref="T:WPFUI.Appearance.Watcher"/> settings work globally as a singleton, they cannot be changed for each <see cref="T:System.Windows.Window"/>.</para>
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Watcher.BackgroundEffect">
+            <summary>
+            Gets or sets a value that indicates whether the <see cref="T:WPFUI.Appearance.Watcher"/> uses custom <see cref="T:WPFUI.Appearance.BackgroundType"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Appearance.Watcher.UpdateAccents">
+            <summary>
+            Gets or sets a value that indicates whether the <see cref="T:WPFUI.Appearance.Watcher"/> uses <see cref="T:WPFUI.Appearance.Accent"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Watcher.Watch(System.Windows.Window,WPFUI.Appearance.BackgroundType,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:WPFUI.Appearance.Watcher"/> and attaches the instance to the given <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Appearance.Watcher.#ctor(System.IntPtr,WPFUI.Appearance.BackgroundType,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:WPFUI.Appearance.Watcher"/>.
+            </summary>
+            <param name="hwnd">Window handle</param>
+        </member>
+        <member name="M:WPFUI.Appearance.Watcher.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Listens to system messages on the application windows.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.Appearance">
+            <summary>
+            A collection representing the available color accents of the controls.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Primary">
+            <summary>
+            Control color according to the current theme accent.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Secondary">
+            <summary>
+            Control color according to the current theme element.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Dark">
+            <summary>
+            Dark color theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Light">
+            <summary>
+            Light color theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Danger">
+            <summary>
+            Red color theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Success">
+            <summary>
+            Green color theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Caution">
+            <summary>
+            Orange color theme.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Appearance.Transparent">
+            <summary>
+            Transparent color theme.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.ColorExtensions">
+            <summary>
+            Adds an extension for <see cref="T:System.Windows.Media.Color"/> that allows manipulation with HSL and HSV color spaces.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.ColorExtensions.ByteMax">
+            <summary>
+            Maximum <see cref="T:System.Byte"/> size with the current <see cref="T:System.Single"/> precision.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToBrush(System.Windows.Media.Color)">
+            <summary>
+            Creates a <see cref="T:System.Windows.Media.SolidColorBrush"/> from a <see cref="T:System.Windows.Media.Color"/>.
+            </summary>
+            <param name="color">Input color.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToBrush(System.Windows.Media.Color,System.Double)">
+            <summary>
+            Creates a <see cref="T:System.Windows.Media.SolidColorBrush"/> from a <see cref="T:System.Windows.Media.Color"/> with defined brush opacity.
+            </summary>
+            <param name="color">Input color.</param>
+            <param name="opacity">Degree of opacity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.UpdateLuminance(System.Windows.Media.Color,System.Single)">
+            <summary>
+            Allows to change the luminance by a factor based on the HSL color space.
+            </summary>
+            <param name="color">Input color.</param>
+            <param name="factor">The value of the luminance change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <returns>Updated <see cref="T:System.Windows.Media.Color"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.UpdateSaturation(System.Windows.Media.Color,System.Single)">
+            <summary>
+            Allows to change the saturation by a factor based on the HSL color space.
+            </summary>
+            <param name="color">Input color.</param>
+            <param name="factor">The value of the saturation change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <returns>Updated <see cref="T:System.Windows.Media.Color"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.UpdateBrightness(System.Windows.Media.Color,System.Single)">
+            <summary>
+            Allows to change the brightness by a factor based on the HSV color space.
+            </summary>
+            <param name="color">Input color.</param>
+            <param name="factor">The value of the brightness change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <returns>Updated <see cref="T:System.Windows.Media.Color"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.Update(System.Windows.Media.Color,System.Single,System.Single,System.Single)">
+            <summary>
+            Allows to change the brightness, saturation and luminance by a factors based on the HSL and HSV color space.
+            </summary>
+            <param name="color"></param>
+            <param name="brightnessFactor">The value of the brightness change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <param name="saturationFactor">The value of the saturation change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <param name="luminanceFactor">The value of the luminance change factor from <see langword="100"/> to <see langword="-100"/>.</param>
+            <returns>Updated <see cref="T:System.Windows.Media.Color"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToHsl(System.Windows.Media.Color)">
+            <summary>
+            HSL representation models the way different paints mix together to create colour in the real world,
+            with the lightness dimension resembling the varying amounts of black or white paint in the mixture.
+            </summary>
+            <returns><see langword="float"/> hue, <see langword="float"/> saturation, <see langword="float"/> lightness</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToHsv(System.Windows.Media.Color)">
+            <summary>
+            HSV representation models how colors appear under light.
+            </summary>
+            <returns><see langword="float"/> hue, <see langword="float"/> saturation, <see langword="float"/> brightness</returns>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.FromHslToRgb(System.Single,System.Single,System.Single)">
+            <summary>
+            Converts the color values stored as HSL to RGB.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.FromHsvToRgb(System.Single,System.Single,System.Single)">
+            <summary>
+            Converts the color values stored as HSV (HSB) to RGB.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.CalcHslChannel(System.Single,System.Single,System.Single)">
+            <summary>
+            Calculates the color component for HSL.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.AlmostEquals(System.Single,System.Single,System.Single)">
+            <summary>
+            Whether the floating point number is about the same.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToPercentage(System.Single)">
+            <summary>
+            Absolute percentage.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.ColorExtensions.ToColorByte(System.Int32)">
+            <summary>
+            Absolute byte.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.DialogEvent">
+            <summary>
+            Event triggered on via <see cref="T:WPFUI.Controls.Dialog"/>.
+            </summary>
+            <param name="dialog">Current <see cref="T:WPFUI.Controls.Dialog"/> instance.</param>
+        </member>
+        <member name="T:WPFUI.Common.Dpi">
+            <summary>
+            Provides access to various DPI-related methods.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Dpi.SystemDpiX">
+            <summary>
+            Gets the horizontal DPI value from <see cref="T:System.Windows.SystemParameters"/>.
+            </summary>
+            <returns>The horizontal DPI value from <see cref="T:System.Windows.SystemParameters"/>. If the property cannot be accessed, the default value 96 is returned.</returns>
+        </member>
+        <member name="M:WPFUI.Common.Dpi.SystemDpiXScale">
+            <summary>
+            Gets the horizontal DPI scale factor based on <see cref="T:System.Windows.SystemParameters"/>.
+            </summary>
+            <returns>The horizontal DPI scale factor.</returns>
+        </member>
+        <member name="M:WPFUI.Common.Dpi.SystemDpiY">
+            <summary>
+            Gets the vertical DPI value from <see cref="T:System.Windows.SystemParameters"/>.
+            </summary>
+            <returns>The vertical DPI value from <see cref="T:System.Windows.SystemParameters"/>. If the property cannot be accessed, the default value 96 is returned.</returns>
+        </member>
+        <member name="M:WPFUI.Common.Dpi.SystemDpiYScale">
+            <summary>
+            Gets the vertical DPI scale factor based on <see cref="T:System.Windows.SystemParameters"/>.
+            </summary>
+            <returns>The vertical DPI scale factor.</returns>
+        </member>
+        <member name="T:WPFUI.Common.ElementPosition">
+            <summary>
+            Decides where to put the element.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.ElementPosition.Left">
+            <summary>
+            Puts the control element on the left.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.ElementPosition.Right">
+            <summary>
+            Puts the control element on the right.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.EventIdentifier">
+            <summary>
+            A convenient class for creating event IDs.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.EventIdentifier.GetNext">
+            <summary>
+            Creates and gets the next identifier.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.EventIdentifier.IsEqual(System.UInt32)">
+            <summary>
+            Checks if the identifiers are the same.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.EventIdentifier.UpdateIdentifier">
+            <summary>
+            Creates and assigns a random value with an extra timecode if possible.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.Glyph">
+            <summary>
+            Represents a set of static methods to operate on <see cref="T:WPFUI.Common.Icon"/> and <see cref="T:WPFUI.Common.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.Swap(WPFUI.Common.Icon)">
+            <summary>
+            Replaces <see cref="T:WPFUI.Common.Icon"/> with <see cref="T:WPFUI.Common.IconFilled"/>.
+            </summary>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.Swap(WPFUI.Common.IconFilled)">
+            <summary>
+            Replaces <see cref="T:WPFUI.Common.IconFilled"/> with <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.ToGlyph(System.Nullable{WPFUI.Common.Icon})">
+            <summary>
+            Converts <see cref="T:WPFUI.Common.Icon"/> to <see langword="char"/> based on the ID.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.ToGlyph(System.Nullable{WPFUI.Common.IconFilled})">
+            <summary>
+            Converts <see cref="T:WPFUI.Common.IconFilled"/> to <see langword="char"/> based on the ID.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.ToString(System.Nullable{WPFUI.Common.Icon})">
+            <summary>
+            Converts <see cref="T:WPFUI.Common.Icon"/> to <see langword="string"/> based on the ID.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.ToString(System.Nullable{WPFUI.Common.IconFilled})">
+            <summary>
+            Converts <see cref="T:WPFUI.Common.IconFilled"/> to <see langword="string"/> based on the ID.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.Parse(System.String)">
+            <summary>
+            Finds icon based on name.
+            </summary>
+            <param name="name">Name of the icon.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Common.Glyph.ParseFilled(System.String)">
+            <summary>
+            Finds icon based on name.
+            </summary>
+            <param name="name">Name of the icon.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WPFUI.Common.Icon">
+            <summary>
+            Represents a list of Fluent System Icons <c>v.1.1.163</c>.
+            <para>May be converted to <see langword="char"/> using <see cref="M:WPFUI.Common.Glyph.ToGlyph(System.Nullable{WPFUI.Common.Icon})"/> or to <see langword="string"/> using <see cref="M:WPFUI.Common.Glyph.ToString(System.Nullable{WPFUI.Common.Icon})"/></para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.Empty">
+            <summary>
+            Actually, this icon is not empty, but makes it easier to navigate.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.CheckboxCheckedSync20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.ChevronUpDown16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.CircleSubtractArrowBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.CircleSubtractArrowForward20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.CursorClick20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.CursorClick24">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.Directions16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.DividerTall20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.DocumentArrowUp20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.DocumentDismiss16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.DocumentLink16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.DocumentPerson20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.EditArrowBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.EmojiSad16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.Extension16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.GlobeClock16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.GlobeClock20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.ImmersiveReader16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.IosArrowRight24">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.LinkDismiss16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.LockOpen16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.Luggage16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.Luggage20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailArrowDoubleBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailArrowDown20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailArrowForward20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailAttach20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailCheckmark20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailError16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailInboxArrowDown20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailPause20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.Icon.MailSettings20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.IconFilled">
+            <summary>
+            Represents a list of filled Fluent System Icons <c>v.1.1.163</c>.
+            <para>May be converted to <see langword="char"/> using <see cref="M:WPFUI.Common.Glyph.ToGlyph(System.Nullable{WPFUI.Common.IconFilled})"/> or to <see langword="string"/> using <see cref="M:WPFUI.Common.Glyph.ToString(System.Nullable{WPFUI.Common.IconFilled})"/></para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Empty">
+            <summary>
+            Actually, this icon is not empty, but makes it easier to navigate.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.ChatArrowBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.ChatArrowDoubleBack16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.ChatArrowDoubleBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Check24">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.CheckboxCheckedSync20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.ChevronUpDown16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.CircleSubtractArrowBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.CircleSubtractArrowForward20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.CursorClick20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.CursorClick24">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Directions16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.DividerTall20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.DocumentArrowUp20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.DocumentDismiss16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.DocumentLink16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.DocumentPerson20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.EditArrowBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.EmojiSad16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Extension16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.GlobeClock16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.GlobeClock20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.ImmersiveReader16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.IosArrowRight24">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.LinkDismiss16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.LockOpen16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Luggage16">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.Luggage20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.MailArrowDoubleBack20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.MailArrowDown20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.MailArrowForward20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.MailAttach20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.IconFilled.MailCheckmark20">
+            <summary>
+            Blank icon
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.IRelayCommand">
+            <summary>
+            A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The
+            default return value for the <see cref="M:WPFUI.Common.IRelayCommand.CanExecute(System.Object)"/> method is <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.IRelayCommand.CanExecute(System.Object)">
+            <summary>
+            Gets encapsulated canExecute function.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:WPFUI.Common.IRelayCommand.Execute(System.Object)">
+            <summary>
+            Triggers action with provided parameter.
+            </summary>
+            <param name="parameter">Argument to be passed.</param>
+        </member>
+        <member name="T:WPFUI.Common.NavigationEvent">
+            <summary>
+            Event triggered on successful navigation.
+            </summary>
+            <param name="navigation">Current navigation instance.</param>
+            <param name="current">Current item.</param>
+        </member>
+        <member name="T:WPFUI.Common.RelayCommand">
+            <summary>
+            A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The
+            default return value for the <see cref="M:WPFUI.Common.RelayCommand.CanExecute(System.Object)"/> method is <see langword="true"/>.
+            <para>
+            <see href="https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.input.icommand?view=winrt-22000"/>
+            </para>
+            </summary>
+        </member>
+        <member name="E:WPFUI.Common.RelayCommand.CanExecuteChanged">
+            <summary>
+            Event occuring when encapsulated canExecute method is changed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Common.RelayCommand"/>.
+            </summary>
+            <param name="execute">Action to be executed.</param>
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Common.RelayCommand"/>.
+            </summary>
+            <param name="execute">Action with <see cref="T:System.Object"/> parameter to be executed.</param>
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Common.RelayCommand"/>.
+            </summary>
+            <param name="execute">Action to be executed.</param>
+            <param name="canExecute">Encapsulated method determining whether to execute action.</param>
+            <exception cref="T:System.ArgumentNullException">Exception occurring when no <see cref="T:System.Action"/> is defined.</exception>
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Boolean})">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Common.RelayCommand"/>.
+            </summary>
+            <param name="execute">Action with <see cref="T:System.Object"/> parameter to be executed.</param>
+            <param name="canExecute">Encapsulated method determining whether to execute action.</param>
+            <exception cref="T:System.ArgumentNullException">Exception occurring when no <see cref="T:System.Action"/> is defined.</exception>
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.CanExecute(System.Object)">
+            <inheritdoc cref="M:WPFUI.Common.IRelayCommand.CanExecute(System.Object)" />
+        </member>
+        <member name="M:WPFUI.Common.RelayCommand.Execute(System.Object)">
+            <inheritdoc cref="M:WPFUI.Common.IRelayCommand.Execute(System.Object)" />
+        </member>
+        <member name="T:WPFUI.Common.RevealMode">
+            <summary>
+            Controls the reveal mode of a control element.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.RevealMode.Hidden">
+            <summary>
+            Element should be hidden.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Common.RevealMode.Visible">
+            <summary>
+            Element should be visible.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Common.SnackbarEvent">
+            <summary>
+            Event triggered on via <see cref="T:WPFUI.Controls.Snackbar"/>.
+            </summary>
+            <param name="snackbar">Current <see cref="T:WPFUI.Controls.Snackbar"/> instance.</param>
+        </member>
+        <member name="T:WPFUI.Common.SnapLayout">
+            <summary>
+            Brings the Snap Layout functionality from Windows 11 to a custom <see cref="T:WPFUI.Controls.TitleBar"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Common.SnapLayout.HwndSourceHook(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Represents the method that handles Win32 window messages.
+            </summary>
+            <param name="hWnd">The window handle.</param>
+            <param name="uMsg">The message ID.</param>
+            <param name="wParam">The message's wParam value.</param>
+            <param name="lParam">The message's lParam value.</param>
+            <param name="handled">A value that indicates whether the message was handled. Set the value to <see langword="true"/> if the message was handled; otherwise, <see langword="false"/>.</param>
+            <returns>The appropriate return value depends on the particular message. See the message documentation details for the Win32 message being handled.</returns>
+        </member>
+        <member name="T:WPFUI.Controls.Anchor">
+            <summary>
+            Creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Anchor.HrefProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Anchor.Href"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Anchor.Href">
+            <summary>
+            Gets or sets the URL that the hyperlink points to.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Anchor.OnClick">
+            <summary>
+            This virtual method is called when button is clicked and it raises the Click event
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Arc">
+            <summary>
+            Control that draws a symmetrical arc with rounded edges.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Arc.StartAngleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Arc.StartAngle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Arc.EndAngleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Arc.EndAngle"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Arc.StartAngle">
+            <summary>
+            Gets or sets the initial angle from which the arc will be drawn.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Arc.EndAngle">
+            <summary>
+            Gets or sets the final angle from which the arc will be drawn.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Arc.IsLargeArc">
+            <summary>
+            If IsLargeArc is <see langword="true"/>, then one of the two larger arc sweeps is chosen; otherwise, if is <see langword="false"/>, one of the smaller arc sweeps is chosen.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Arc.DefiningGeometry">
+            <inheritdoc />
+        </member>
+        <member name="M:WPFUI.Controls.Arc.#cctor">
+            <summary>
+            Overrides default properties.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Arc.GetDefiningGeometry">
+            <summary>
+            Get the geometry that defines this shape.
+            <para><see href="https://stackoverflow.com/a/36756365/13224348">Based on Mark Feldman implementation.</see></para>
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Arc.PointAtAngle(System.Double)">
+            <summary>
+            Draws a point on the coordinates of the given angle.
+            <para><see href="https://stackoverflow.com/a/36756365/13224348">Based on Mark Feldman implementation.</see></para>
+            </summary>
+            <param name="angle">The angle at which to create the point.</param>
+        </member>
+        <member name="M:WPFUI.Controls.Arc.PropertyChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Event triggered when one of the key parameters is changed. Forces the geometry to be redrawn.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Badge">
+            <summary>
+            Used to highlight an item, attract attention or flag status.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Badge.AppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Badge.Appearance"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Badge.Appearance">
+            <inheritdoc />
+        </member>
+        <member name="T:WPFUI.Controls.Breadcrumb">
+            <summary>
+            Displays the name of the current <see cref="T:WPFUI.Controls.NavigationItem"/> and it's parents that can be navigated using <see cref="T:WPFUI.Controls.Interfaces.INavigation"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Breadcrumb.CurrentProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Breadcrumb.Current"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Breadcrumb.NavigationProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Breadcrumb.Navigation"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Breadcrumb.Current">
+            <summary>
+            <see cref="T:WPFUI.Controls.Interfaces.INavigation"/> based on which <see cref="T:WPFUI.Controls.Breadcrumb"/> displays the titles.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Breadcrumb.Navigation">
+            <summary>
+            <see cref="T:WPFUI.Controls.Interfaces.INavigation"/> based on which <see cref="T:WPFUI.Controls.Breadcrumb"/> displays the titles.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Button">
+            <summary>
+            Inherited from the <see cref="T:System.Windows.Controls.Button"/>, adding <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Button.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Button.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Button.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Button.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Button.AppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Button.Appearance"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Button.HoverBackgroundProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Button.HoverBackground"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Button.HoverBorderBrushProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Button.HoverBorderBrush"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Button.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.Button.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.Button.Appearance">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.Button.HoverBackground">
+            <summary>
+            Background <see cref="T:System.Windows.Media.Brush"/> when the user interacts with an element with a pointing device.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Button.HoverBorderBrush">
+            <summary>
+            Border <see cref="T:System.Windows.Media.Brush"/> when the user interacts with an element with a pointing device.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Card">
+            <summary>
+            Simple Card with content and <see cref="P:WPFUI.Controls.Card.Footer"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Card.FooterProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Card.Footer"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Card.HasFooterProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Card.HasFooter"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Card.Footer">
+            <summary>
+            Gets or sets additional content displayed at the bottom.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Card.HasFooter">
+            <summary>
+            Gets information whether the <see cref="T:WPFUI.Controls.Card"/> has a <see cref="P:WPFUI.Controls.Card.Footer"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.CardAction">
+            <summary>
+            Inherited from the <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/> interactive card styled according to Fluent Design.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardAction.ShowChevronProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardAction.ShowChevron"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardAction.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardAction.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardAction.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardAction.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardAction.ShowChevron">
+            <summary>
+            Gets or sets information whether to display the chevron icon on the right side of the card.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardAction.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.CardAction.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="T:WPFUI.Controls.CardControl">
+            <summary>
+            Inherited from the <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/> control which displays an additional control on the right side of the card.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardControl.TitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardControl.Title"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardControl.SubtitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardControl.Subtitle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardControl.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardControl.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardControl.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardControl.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardControl.Title">
+            <summary>
+            Gets or sets text displayed on the left side of the card.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardControl.Subtitle">
+            <summary>
+            Gets or sets text displayed under main <see cref="P:WPFUI.Controls.CardControl.Title"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardControl.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.CardControl.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="T:WPFUI.Controls.CardExpander">
+            <summary>
+            Inherited from the <see cref="T:System.Windows.Controls.Expander"/> control which can hide the collapsible content.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardExpander.SubtitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardExpander.Subtitle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardExpander.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardExpander.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardExpander.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardExpander.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CardExpander.HeaderContentProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CardExpander.HeaderContent"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardExpander.Subtitle">
+            <summary>
+            Gets or sets text displayed under main <see cref="P:WPFUI.Controls.CardExpander.HeaderContent"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CardExpander.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.CardExpander.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.CardExpander.HeaderContent">
+            <summary>
+            Gets or sets additional content displayed next to the chevron.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.ClientAreaBorder">
+            <summary>
+            If you use <see cref="T:System.Windows.Shell.WindowChrome"/> to extend the UI elements to the non-client area, you can include this container in the template of <see cref="T:System.Windows.Window"/> so that the content inside automatically fills the client area.
+            Using this container can let you get rid of various margin adaptations done in Setter/Trigger of the style of <see cref="T:System.Windows.Window"/> when the window state changes.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.ClientAreaBorder.OnVisualParentChanged(System.Windows.DependencyObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.ClientAreaBorder.PaddedBorderThickness">
+            <summary>
+            Get the system <see cref="F:WPFUI.Controls.ClientAreaBorder.SM_CXPADDEDBORDER"/> value in WPF units.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ClientAreaBorder.ResizeFrameBorderThickness">
+            <summary>
+            Get the system <see cref="F:WPFUI.Controls.ClientAreaBorder.SM_CXFRAME"/> and <see cref="F:WPFUI.Controls.ClientAreaBorder.SM_CYFRAME"/> values in WPF units.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ClientAreaBorder.WindowChromeNonClientFrameThickness">
+            <summary>
+            If you use a <see cref="T:System.Windows.Shell.WindowChrome"/> to extend the client area of a window to the non-client area, you need to handle the edge margin issue when the window is maximized.
+            Use this property to get the correct margin value when the window is maximized, so that when the window is maximized, the client area can completely cover the screen client area by no less than a single pixel at any DPI.
+            The<see cref="M:WPFUI.Win32.User32.GetSystemMetrics(System.Int32)"/> method cannot obtain this value directly.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.CodeBlock">
+            <summary>
+            Formats and display a fragment of the source code.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CodeBlock.SyntaxContentProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CodeBlock.SyntaxContent"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.CodeBlock.ButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.CodeBlock.ButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CodeBlock.SyntaxContent">
+            <summary>
+            Formatted <see cref="P:System.Windows.Controls.ContentControl.Content"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.CodeBlock.ButtonCommand">
+            <summary>
+            Command triggered after clicking the control button.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.CodeBlock.#ctor">
+            <summary>
+            Creates new instance and assigns <see cref="P:WPFUI.Controls.CodeBlock.ButtonCommand"/> default action.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.CodeBlock.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            This method is invoked when the Content property changes.
+            </summary>
+            <param name="oldContent">The old value of the Content property.</param>
+            <param name="newContent">The new value of the Content property.</param>
+        </member>
+        <member name="T:WPFUI.Controls.Dialog">
+            <summary>
+            Displays a large card with a slightly transparent background and two action buttons.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ShowProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.Show"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.DialogWidthProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.DialogWidth"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.DialogHeightProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.DialogHeight"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonLeftNameProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonLeftName"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonLeftClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.Dialog.ButtonLeftClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonRightNameProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonRightName"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonLeftAppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonLeftAppearance"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonLeftVisibilityProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonLeftVisibility"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonRightClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.Dialog.ButtonRightClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonRightAppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonRightAppearance"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.ButtonRightVisibilityProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.ButtonRightVisibility"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Dialog.TemplateButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Dialog.TemplateButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.Show">
+            <summary>
+            Gets or sets information whether the dialog should be displayed.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.DialogWidth">
+            <summary>
+            Gets or sets maximum dialog width.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.DialogHeight">
+            <summary>
+            Gets or sets dialog height.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonLeftName">
+            <summary>
+            Name of the button on the left side of footer.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonLeftAppearance">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.Appearance"/> of the button on the left, if available.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonLeftVisibility">
+            <summary>
+            Gets or sets the visibility of the button on the left.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Dialog.ButtonLeftClick">
+            <summary>
+            Action triggered after clicking left button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonRightName">
+            <summary>
+            Name of the button on the right side of footer.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonRightAppearance">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.Appearance"/> of the button on the right, if available.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.ButtonRightVisibility">
+            <summary>
+            Gets or sets the visibility of the button on the right.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Dialog.ButtonRightClick">
+            <summary>
+            Action triggered after clicking right button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Dialog.TemplateButtonCommand">
+            <summary>
+            Command triggered after clicking the button on the Footer.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Dialog.Opened">
+            <summary>
+            Event triggered when <see cref="T:WPFUI.Controls.Dialog"/> opens.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Dialog.Closed">
+            <summary>
+            Event triggered when <see cref="T:WPFUI.Controls.Dialog"/> gets closed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Dialog.#ctor">
+            <summary>
+            Creates new instance and sets default <see cref="F:WPFUI.Controls.Dialog.TemplateButtonCommandProperty"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.DynamicScrollBar">
+            <summary>
+            Custom <see cref="T:System.Windows.Controls.Primitives.ScrollBar"/> with events depending on actions taken by the user.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.DynamicScrollBar.IsScrollingProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.DynamicScrollBar.IsScrolling"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.DynamicScrollBar.IsInteractedProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.DynamicScrollBar.IsInteracted"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.DynamicScrollBar.IsScrolling">
+            <summary>
+            Gets or sets information whether the user was scrolling for the last few seconds.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.DynamicScrollBar.IsInteracted">
+            <summary>
+            Informs whether the user has taken an action related to scrolling.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.DynamicScrollBar.#ctor">
+            <summary>
+            Creates a new instance of the class and assigns events to the mouse.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.DynamicScrollViewer">
+            <summary>
+            Custom <see cref="T:System.Windows.Controls.ScrollViewer"/> with events depending on actions taken by the user.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.DynamicScrollViewer.IsScrollingProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.DynamicScrollViewer.IsScrolling"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.DynamicScrollViewer.TimeoutProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.DynamicScrollViewer.Timeout"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.DynamicScrollViewer.IsScrolling">
+            <summary>
+            Gets or sets information whether the user was scrolling for the last few seconds.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.DynamicScrollViewer.Timeout">
+            <summary>
+            Gets or sets time after which the scroll is to be hidden.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.DynamicScrollViewer.OnScrollChanged(System.Windows.Controls.ScrollChangedEventArgs)">
+            <summary>
+            OnScrollChanged is an override called whenever scrolling state changes on this <see cref="T:WPFUI.Controls.DynamicScrollViewer"/>.
+            </summary>
+            <remarks>
+            OnScrollChanged fires the ScrollChangedEvent. Overriders of this method should call
+            base.OnScrollChanged(args) if they want the event to be fired.
+            </remarks>
+            <param name="e">ScrollChangedEventArgs containing information about the change in scrolling state.</param>
+        </member>
+        <member name="T:WPFUI.Controls.FontIcon">
+            <summary>
+            Represents a text element containing an icon glyph with selectable font family.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.FontIcon.GlyphProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.FontIcon.Glyph"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.FontIcon.Glyph">
+            <summary>
+            Gets or sets displayed <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Hyperlink">
+            <summary>
+            Button that opens a URL in a web browser.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Hyperlink.NavigateUriProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Hyperlink.NavigateUri"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Hyperlink.NavigateUri">
+            <summary>
+            The URL (or application shortcut) to open.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Hyperlink.#ctor">
+            <summary>
+            Action triggered when the button is clicked.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Icon">
+            <summary>
+            Represents a text element containing an icon glyph.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Icon.GlyphProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Icon.Glyph"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Icon.RawGlyphProperty">
+            <summary>
+            <see cref="T:System.String"/> property for <see cref="P:WPFUI.Controls.Icon.RawGlyph"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Icon.FilledProperty">
+            <summary>
+            <see cref="T:System.String"/> property for <see cref="P:WPFUI.Controls.Icon.Filled"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Icon.Glyph">
+            <summary>
+            Gets or sets displayed <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Icon.RawGlyph">
+            <summary>
+            Gets or sets displayed <see cref="T:WPFUI.Common.Icon"/> as <see langword="string"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Icon.Filled">
+            <summary>
+            Defines whether or not we should use the <see cref="T:WPFUI.Common.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Interfaces.IAppearanceControl">
+            <summary>
+            UI <see cref="T:System.Windows.Controls.Control"/> with <see cref="T:WPFUI.Common.Appearance"/> attributes.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.IAppearanceControl.Appearance">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.Appearance"/> of the control, if available.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Interfaces.IIconControl">
+            <summary>
+            UI <see cref="T:System.Windows.Controls.Control"/> with <see cref="T:WPFUI.Common.Icon"/> attributes.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.IIconControl.Icon">
+            <summary>
+            Gets or sets displayed <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.IIconControl.IconFilled">
+            <summary>
+            Defines whether or not we should use the <see cref="T:WPFUI.Common.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Interfaces.INavigable">
+            <summary>
+            Notifies page about being navigated.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Interfaces.INavigable.OnNavigationRequest(WPFUI.Controls.Interfaces.INavigation,System.Object)">
+            <summary>
+            Method triggered when the page is navigated.
+            </summary>
+            <param name="sender">Navigation service, from which the navigation was made.</param>
+            <param name="current">Current page.</param>
+        </member>
+        <member name="T:WPFUI.Controls.Interfaces.INavigation">
+            <summary>
+            Represents navigation class.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.SelectedPageIndex">
+            <summary>
+            Menu item ID of the current page.
+            <para>If set to a value less than <see langword="0"/>, no <see cref="T:System.Windows.Controls.Page"/> will be loaded during <see cref="T:WPFUI.Controls.Interfaces.INavigation"/> initialization.</para>
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.PreviousPageIndex">
+            <summary>
+            Menu item ID of the previous page.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.Current">
+            <summary>
+            Currently used item like <see cref="T:WPFUI.Controls.Interfaces.INavigationItem"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.Frame">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Controls.Frame"/> in which the <see cref="T:System.Windows.Controls.Page"/> will be loaded after navigation.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.ItemStyle">
+            <summary>
+            <see cref="T:System.Windows.Style"/> for <see cref="P:WPFUI.Controls.Interfaces.INavigation.Items"/> and <see cref="P:WPFUI.Controls.Interfaces.INavigation.Footer"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.Items">
+            <summary>
+            Gets or sets the list of <see cref="T:WPFUI.Controls.Interfaces.INavigationItem"/> that will be displayed on the menu.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigation.Footer">
+            <summary>
+            Gets or sets the list of <see cref="T:WPFUI.Controls.Interfaces.INavigationItem"/> which will be displayed at the bottom of the navigation and will not be scrolled.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Interfaces.INavigation.Navigated">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.NavigationEvent"/> that will be triggered during navigation.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Interfaces.INavigation.Flush">
+            <summary>
+            Clears all navigation items.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Interfaces.INavigation.FlushPages">
+            <summary>
+            Clears all initialized instances of the pages.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Interfaces.INavigation.Navigate(System.Int32,System.Boolean,System.Object)">
+            <summary>
+            Loads a <see cref="T:System.Windows.Controls.Page"/> instance into <see cref="P:WPFUI.Controls.Interfaces.INavigation.Frame"/> based on the tag of <see cref="T:WPFUI.Controls.Interfaces.INavigationItem"/>.
+            </summary>
+            <param name="pageIndex">ID of the page to be loaded.</param>
+            <param name="reload"><see langword="true"/> if the page object is to be recreated.</param>
+            <param name="dataContext">When an <see cref="T:System.Windows.Controls.Page"/> DataContext changes, all data-bound properties (on this element or any other element) whose Bindings use this DataContext will change to reflect the new value.</param>
+        </member>
+        <member name="M:WPFUI.Controls.Interfaces.INavigation.Navigate(System.String,System.Boolean,System.Object)">
+            <summary>
+            Loads a <see cref="T:System.Windows.Controls.Page"/> instance into <see cref="P:WPFUI.Controls.Interfaces.INavigation.Frame"/> based on the tag of <see cref="T:WPFUI.Controls.Interfaces.INavigationItem"/>.
+            </summary>
+            <param name="pageName">Name of the page to be loaded.</param>
+            <param name="reload"><see langword="true"/> if the page object is to be recreated.</param>
+            <param name="dataContext">When an <see cref="T:System.Windows.Controls.Page"/> DataContext changes, all data-bound properties (on this element or any other element) whose Bindings use this DataContext will change to reflect the new value.</param>
+        </member>
+        <member name="T:WPFUI.Controls.Interfaces.INavigationItem">
+            <summary>
+            Navigation element.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.Content">
+            <summary>
+            Content is the data used to generate the child elements of this control.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.Tag">
+            <summary>
+            Tag property.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.IsValid">
+            <summary>
+            Gets information whether the page has a tag and type.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.IsActive">
+            <summary>
+            Gets information whether the current element is active.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.Instance">
+            <summary>
+            Instance of <see cref="T:System.Windows.Controls.Page"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.Type">
+            <summary>
+            <see cref="T:System.Windows.Controls.Page"/> type.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.INavigationItem.Style">
+            <summary>
+            Style property.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Interfaces.INavigationItem.Click">
+            <summary>
+            Add / Remove ClickEvent handler
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.IThemeElement.IsMica">
+            <summary>
+            Indicates whether the application has a Mica effect applied at the moment.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Interfaces.IThemeElement.IsDarkTheme">
+            <summary>
+            Indicates whether the application is in dark mode.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.LoadingScreen">
+            <summary>
+            Prestyled loading screen with <see cref="T:WPFUI.Controls.ProgressRing"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.MessageBox">
+            <summary>
+            Customized window for notifications.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ShowTitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ShowTitle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ShowFooterProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ShowFooter"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.MicaEnabledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.MicaEnabled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonLeftNameProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ButtonLeftName"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonLeftAppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ButtonLeftAppearance"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonLeftClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.MessageBox.ButtonLeftClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonRightNameProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ButtonRightName"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonRightAppearanceProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.ButtonRightAppearance"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.ButtonRightClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.MessageBox.ButtonRightClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.MessageBox.TemplateButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.MessageBox.TemplateButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ShowTitle">
+            <summary>
+            Gets or sets a value that determines whether to show the <see cref="P:System.Windows.Window.Title"/> in <see cref="T:WPFUI.Controls.TitleBar"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ShowFooter">
+            <summary>
+            Gets or sets a value that determines whether to show the Footer.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.MicaEnabled">
+            <summary>
+            Gets or sets a value that determines whether <see cref="T:WPFUI.Controls.MessageBox"/> should contain a <see cref="!:WPFUI.Background.BackgroundType.Mica"/> effect.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ButtonLeftName">
+            <summary>
+            Name of the button on the left side of footer.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ButtonLeftAppearance">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.Appearance"/> of the button on the left, if available.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.MessageBox.ButtonLeftClick">
+            <summary>
+            Action triggered after clicking left button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ButtonRightName">
+            <summary>
+            Name of the button on the right side of footer.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.ButtonRightAppearance">
+            <summary>
+            Gets or sets the <see cref="T:WPFUI.Common.Appearance"/> of the button on the right, if available.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.MessageBox.ButtonRightClick">
+            <summary>
+            Action triggered after clicking right button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.MessageBox.TemplateButtonCommand">
+            <summary>
+            Command triggered after clicking the button on the Footer.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.MessageBox.#ctor">
+            <summary>
+            Creates new instance and sets default <see cref="E:System.Windows.FrameworkElement.Loaded"/> event.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.MessageBox.Show">
+            Shows a <see cref="T:System.Windows.MessageBox"/>.
+        </member>
+        <member name="M:WPFUI.Controls.MessageBox.Show(System.String,System.Object)">
+            <summary>
+            Sets <see cref="P:System.Windows.Window.Title"/> and content of <see cref="T:System.Windows.Window"/>, then calls <see cref="M:WPFUI.Controls.MessageBox.Show"/>.
+            </summary>
+            <param name="title"><see cref="P:System.Windows.Window.Title"/></param>
+            <param name="content">Content of <see cref="T:System.Windows.Window"/></param>
+        </member>
+        <member name="T:WPFUI.Controls.Navigation">
+            <summary>
+            Base class for creating new navigation controls.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.SelectedPageIndexProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.SelectedPageIndex"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.PreviousPageIndexProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.PreviousPageIndex"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.FrameProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.Frame"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.ItemsProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.Items"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.FooterProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.Footer"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.ItemStyleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Navigation.ItemStyle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.NavigatedForwardEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.Navigation.NavigatedForward"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Navigation.NavigatedBackwardEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.Navigation.NavigatedBackward"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.SelectedPageIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.PreviousPageIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.Items">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.Footer">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.ItemStyle">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.PageNow">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.Namespace">
+            <summary>
+            Namespace containing the pages.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.History">
+            <summary>
+            Navigation history containing pages tags.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Navigation.Navigated">
+            <inheritdoc/>
+        </member>
+        <member name="E:WPFUI.Controls.Navigation.NavigatedForward">
+            <summary>
+            Event triggered when navigated forward.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Navigation.NavigatedBackward">
+            <summary>
+            Event triggered when navigated backward.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Navigation.Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:WPFUI.Controls.Navigation.#ctor">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Controls.Interfaces.INavigation"/> and sets it's default <see cref="E:System.Windows.FrameworkElement.Loaded"/> event.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Navigation.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:WPFUI.Controls.Navigation.FlushPages">
+            <inheritdoc/>
+        </member>
+        <member name="M:WPFUI.Controls.Navigation.Navigate(System.String,System.Boolean,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WPFUI.Controls.Navigation.Navigate(System.Int32,System.Boolean,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WPFUI.Controls.NavigationCompact">
+            <summary>
+            Modern navigation styled similar to the Task Manager in Windows 11.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationCompact.IsExpandedProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationCompact.IsExpanded"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationCompact.TemplateButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationCompact.TemplateButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationCompact.IsExpanded">
+            <summary>
+            Gets or sets a value indicating whether the menu is expanded.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationCompact.TemplateButtonCommand">
+            <summary>
+            Command triggered after clicking the button.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.NavigationCompact.#ctor">
+            <summary>
+            Creates new instance and sets default <see cref="F:WPFUI.Controls.NavigationCompact.TemplateButtonCommandProperty"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.NavigationFluent">
+            <summary>
+            Modern navigation styled according to the principles of Fluent Design for Windows 11.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.NavigationItem">
+            <summary>
+            Navigation element.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.IsActiveProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationItem.IsActive"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationItem.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationItem.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.ImageProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NavigationItem.Image"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.ActivatedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.NavigationItem.Activated"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NavigationItem.DeactivatedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.NavigationItem.Deactivated"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.Image">
+            <summary>
+            Gets or sets image displayed next to the card name instead of the icon.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.NavigationItem.Activated">
+            <summary>
+            Occurs when <see cref="T:WPFUI.Controls.NavigationItem"/> is activated via <see cref="P:WPFUI.Controls.NavigationItem.IsActive"/>.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.NavigationItem.Deactivated">
+            <summary>
+            Occurs when <see cref="T:WPFUI.Controls.NavigationItem"/> is deactivated via <see cref="P:WPFUI.Controls.NavigationItem.IsActive"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.IsValid">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.Instance">
+            <inheritdoc/>
+        </member>
+        <member name="P:WPFUI.Controls.NavigationItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="T:WPFUI.Controls.NavigationStore">
+            <summary>
+            Modern navigation styled according to the principles of Fluent Design for Windows 11.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.NumberBox">
+            <summary>
+            Text field for entering numbers with the possibility of specifying pattern.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.ValueProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.Value"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.StepProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.Step"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.MaxProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.Max"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.MinProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.Min"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.DecimalPlacesProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.DecimalPlaces"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.MaskProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.Mask"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.ControlsVisibleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.ControlsVisible"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.IntegersOnlyProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.IntegersOnly"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.NumberBox.ButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.NumberBox.ButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.Value">
+            <summary>
+            Current numeric value.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.Step">
+            <summary>
+            Gets or sets value by which the given number will be increased or decreased after pressing the button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.Max">
+            <summary>
+            Maximum allowable value.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.Min">
+            <summary>
+            Minimum allowable value.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.DecimalPlaces">
+            <summary>
+            Number of decimal places.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.Mask">
+            <summary>
+            Gets or sets numbers pattern.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.ControlsVisible">
+            <summary>
+            Gets or sets value determining whether to display the button controls.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.IntegersOnly">
+            <summary>
+            Gets or sets value which determines whether only integers can be entered.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.NumberBox.ButtonCommand">
+            <summary>
+            Command triggered after clicking the control button.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.NumberBox.#ctor">
+            <summary>
+            Creates new instance of <see cref="T:WPFUI.Controls.NumberBox"/> and defines default events for validating provided numbers.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.PasswordBox">
+            <summary>
+            The modified password control.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox._takenControl">
+            <summary>
+            Blocks triggering overwrite when forced text editing.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox.PasswordProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.PasswordBox.Password"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox.PasswordCharProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.PasswordBox.PasswordChar"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox.PasswordRevealModeProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.PasswordBox.PasswordRevealMode"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox.ShowRevealButtonProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.PasswordBox.ShowRevealButton"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.PasswordBox.TemplateButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.PasswordBox.TemplateButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.Password">
+            <summary>
+            Gets or sets currently typed text represented by asterisks.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.PasswordChar">
+            <summary>
+            Gets or sets character used to mask the password.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.PasswordRevealMode">
+            <summary>
+            Gets or sets a value deciding whether the password should be visible as plain text.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.ShowRevealButton">
+            <summary>
+            Gets or sets a value deciding whether to display the reveal password button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.Text">
+            <summary>
+            Contents of the TextBox. Returns asterisks, if you want a valid password use <see cref="P:WPFUI.Controls.PasswordBox.Password"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.PasswordBox.TemplateButtonCommand">
+            <summary>
+            Command triggered after clicking the button.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.#ctor">
+            <summary>
+            Creates new instance and sets default <see cref="F:WPFUI.Controls.PasswordBox.TemplateButtonCommandProperty"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.OnTextChanged(System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Called when content changes.
+            <para>Partially inspired by Leonardo T. implementation of SecureWpfLogOn.</para>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.UpdatePasswordWithNewChar(System.Char)">
+            <summary>
+            Updates the content of the displayed password if the character is changed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.UpdateRevealIfPossible(WPFUI.Common.RevealMode)">
+            <summary>
+            Change the display of the password if rules are supported.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.OnPasswordCharChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Static method that is called if the character is changed in the during the run.
+            </summary>
+            <param name="d">Instance of the <see cref="T:WPFUI.Controls.PasswordBox"/></param>
+            <param name="e">Various property events.</param>
+        </member>
+        <member name="M:WPFUI.Controls.PasswordBox.OnPasswordRevealModeChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Static method that is called if the reveal mode is changed in the during the run.
+            </summary>
+            <param name="d">Instance of the <see cref="T:WPFUI.Controls.PasswordBox"/></param>
+            <param name="e">Various property events.</param>
+        </member>
+        <member name="T:WPFUI.Controls.ProgressRing">
+            <summary>
+            Rotating loading ring.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.ProgressProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.Progress"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.IsIndeterminateProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.IsIndeterminate"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.EngAngleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.EngAngle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.IndeterminateAngleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.IndeterminateAngle"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.CoverRingStrokeProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.CoverRingStroke"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.ProgressRing.CoverRingVisibilityProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.ProgressRing.CoverRingVisibility"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.Progress">
+            <summary>
+            Gets or sets the progress.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.IsIndeterminate">
+            <summary>
+            Determines if <see cref="T:WPFUI.Controls.ProgressRing"/> shows actual values (<see langword="false"/>)
+            or generic, continuous progress feedback (<see langword="true"/>).
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.EngAngle">
+            <summary>
+            Gets or sets the <see cref="P:WPFUI.Controls.Arc.EndAngle"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.IndeterminateAngle">
+            <summary>
+            Gets the <see cref="P:WPFUI.Controls.Arc.EndAngle"/> when <see cref="P:WPFUI.Controls.ProgressRing.IsIndeterminate"/> is <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.CoverRingStroke">
+            <summary>
+            Background ring fill.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.ProgressRing.CoverRingVisibility">
+            <summary>
+            Background ring visibility.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.ProgressRing.UpdateProgressAngle">
+            <summary>
+            Re-draws <see cref="P:WPFUI.Controls.Arc.EndAngle"/> depending on <see cref="P:WPFUI.Controls.ProgressRing.Progress"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.ProgressRing.PropertyChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Validates the entered <see cref="P:WPFUI.Controls.ProgressRing.Progress"/> and redraws the <see cref="T:WPFUI.Controls.Arc"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Rating">
+            <summary>
+            Displays the rating scale with interactions.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Rating.ValueProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Rating.Value"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Rating.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Rating.Icon"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Rating.Value">
+            <summary>
+            User rating.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Rating.Icon">
+            <summary>
+            Gets or sets displayed <see cref="T:WPFUI.Common.Icon"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.SearchBox">
+            <summary>
+            Lets look for things and other stuff.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.SearchBox.#cctor">
+            <summary>
+            Property override for <see cref="P:WPFUI.Controls.TextBox.Icon"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.Snackbar">
+            <summary>
+            Small card with buttons displayed at the bottom for a short time.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.ShowProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.Show"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.TimeoutProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.Timeout"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.TitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.Title"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.MessageProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.Message"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.ShowCloseButtonProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.ShowCloseButton"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.SlideTransformProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.SlideTransform"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.Snackbar.ButtonCloseCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.Snackbar.ButtonCloseCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.Show">
+            <summary>
+            Gets or sets information whether the snackbar should be displayed.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.Timeout">
+            <summary>
+            Time for which the snackbar is to be displayed.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.Title">
+            <summary>
+            Gets or sets the text displayed on the top of the snackbar.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.Message">
+            <summary>
+            Gets or sets the text displayed on the bottom of the snackbar.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.ShowCloseButton">
+            <summary>
+            Gets or sets a value indicating whether the <see cref="T:WPFUI.Controls.Snackbar"/> close button should be visible.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.SlideTransform">
+            <summary>
+            Gets or sets the transform.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.Snackbar.ButtonCloseCommand">
+            <summary>
+            Gets the <see cref="T:WPFUI.Common.RelayCommand"/> triggered after clicking close button.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Snackbar.Opened">
+            <summary>
+            Event triggered when <see cref="T:WPFUI.Controls.Snackbar"/> opens.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.Snackbar.Closed">
+            <summary>
+            Event triggered when <see cref="T:WPFUI.Controls.Snackbar"/> gets closed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Snackbar.#ctor">
+            <summary>
+            Creates new instance and sets default <see cref="P:WPFUI.Controls.Snackbar.ButtonCloseCommand"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Snackbar.Expand">
+            <summary>
+            Shows the snackbar for the amount of time specified in <see cref="P:WPFUI.Controls.Snackbar.Timeout"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Snackbar.Expand(System.String,System.String)">
+            <summary>
+            Sets <see cref="P:WPFUI.Controls.Snackbar.Title"/> and <see cref="P:WPFUI.Controls.Snackbar.Message"/>, then shows the snackbar for the amount of time specified in <see cref="P:WPFUI.Controls.Snackbar.Timeout"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.Snackbar.Hide">
+            <summary>
+            Hides <see cref="T:WPFUI.Controls.Snackbar"/>.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.TextBox">
+            <summary>
+            Extended <see cref="T:System.Windows.Controls.TextBox"/> with additional parameters like <see cref="P:WPFUI.Controls.TextBox.Placeholder"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TextBox.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.IconPositionProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TextBox.IconPosition"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.IconFilledProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TextBox.IconFilled"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.IconForegroundProperty">
+            <summary>
+            DependencyProperty for <see cref="P:WPFUI.Controls.TextBox.IconForeground" /> property.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.PlaceholderProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TextBox.Placeholder"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TextBox.PlaceholderVisibleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TextBox.PlaceholderVisible"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.IconPosition">
+            <summary>
+            Defines which side the icon should be placed on.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.IconFilled">
+            <inheritdoc />
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.IconForeground">
+            <summary>
+            The Foreground property specifies the foreground brush of an element's <see cref="P:WPFUI.Controls.TextBox.Icon"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.Placeholder">
+            <summary>
+            Gets or sets numbers pattern.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TextBox.PlaceholderVisible">
+            <summary>
+            Gets or sets value determining whether to display the placeholder.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.TextBox.#ctor">
+            <summary>
+            Creates a new instance and assigns default events.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.TitleBar">
+            <summary>
+            Custom navigation buttons for the window.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.TitleProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.Title"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.MinimizeToTrayProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.MinimizeToTray"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.UseSnapLayoutProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.UseSnapLayout"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.IsMaximizedProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.IsMaximized"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.ApplicationNavigationProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.ApplicationNavigation"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.ShowMaximizeProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.ShowMaximize"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.ShowMinimizeProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.ShowMinimize"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.ShowHelpProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.ShowHelp"/>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.IconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.Icon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.NotifyIconTooltipProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.NotifyIconTooltip"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.NotifyIconImageProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.NotifyIconImage"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.UseNotifyIconProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.UseNotifyIcon"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.NotifyIconMenuProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.NotifyIconMenu"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.NotifyIconClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.NotifyIconClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.NotifyIconDoubleClickEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.NotifyIconDoubleClick"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.CloseClickedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.CloseClicked"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.MaximizeClickedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.MaximizeClicked"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.MinimizeClickedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.MinimizeClicked"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.HelpClickedEvent">
+            <summary>
+            Routed event for <see cref="E:WPFUI.Controls.TitleBar.HelpClicked"/>.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Controls.TitleBar.ButtonCommandProperty">
+            <summary>
+            Property for <see cref="P:WPFUI.Controls.TitleBar.ButtonCommand"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.Title">
+            <summary>
+            Gets or sets title displayed on the left.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.MinimizeToTray">
+            <summary>
+            Gets or sets information whether to minimize the application to tray.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.UseSnapLayout">
+            <summary>
+            Gets or sets information whether the use Windows 11 Snap Layout.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.IsMaximized">
+            <summary>
+            Gets or sets information whether the current window is maximized.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.ApplicationNavigation">
+            <summary>
+            Gets or sets information whether the controls affect main application window.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.ShowMaximize">
+            <summary>
+            Gets or sets information whether to show maximize button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.ShowMinimize">
+            <summary>
+            Gets or sets information whether to show minimize button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.ShowHelp">
+            <summary>
+            Gets or sets information whether to show help button
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.Icon">
+            <summary>
+            Titlebar icon.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.NotifyIconTooltip">
+            <summary>
+            Gets or sets text displayed when hover NotifyIcon in system tray.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.NotifyIconImage">
+            <summary>
+            BitmapSource of tray icon.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.UseNotifyIcon">
+            <summary>
+            Gets or sets information whether to use shell icon with menu in system tray.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.NotifyIconMenu">
+            <summary>
+            Menu displayed when left click on NotifyIcon.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.NotifyIconClick">
+            <summary>
+            Event triggered after clicking the left mouse button on the tray icon.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.NotifyIconDoubleClick">
+            <summary>
+            Event triggered after double-clicking the left mouse button on the tray icon.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.CloseClicked">
+            <summary>
+            Event triggered after clicking close button.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.MaximizeClicked">
+            <summary>
+            Event triggered after clicking maximize or restore button.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.MinimizeClicked">
+            <summary>
+            Event triggered after clicking minimize button.
+            </summary>
+        </member>
+        <member name="E:WPFUI.Controls.TitleBar.HelpClicked">
+            <summary>
+            Event triggered after clicking help button
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.ButtonCommand">
+            <summary>
+            Command triggered after clicking the titlebar button.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.CloseActionOverride">
+            <summary>
+            Lets you override the behavior of the Close button with an <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.MaximizeActionOverride">
+            <summary>
+            Lets you override the behavior of the Maximize/Restore button with an <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Controls.TitleBar.MinimizeActionOverride">
+            <summary>
+            Lets you override the behavior of the Minimize button with an <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.TitleBar.#ctor">
+            <summary>
+            Creates a new instance of the class and sets the default <see cref="E:System.Windows.FrameworkElement.Loaded"/> event.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Controls.TitleBar.ResetIcon">
+            <summary>
+            Resets icon.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Controls.ToggleSwitch">
+            <inheritdoc />
+        </member>
+        <member name="T:WPFUI.Converters.BrushToColorConverter">
+            <summary>
+            Converts <see cref="T:System.Windows.Media.SolidColorBrush"/>  to <see langword="Color"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.BrushToColorConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <see cref="T:System.Windows.Media.SolidColorBrush"/>  to <see langword="Color"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.BrushToColorConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not Implemented.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:WPFUI.Converters.IconNotEmptyConverter">
+            <summary>
+            Checks if the <see cref="T:WPFUI.Common.Icon"/> is valid and not empty.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.IconNotEmptyConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Checks if the <see cref="T:WPFUI.Common.Icon"/> is valid and not empty.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.IconNotEmptyConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not Implemented.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:WPFUI.Converters.IconToStringConverter">
+            <summary>
+            Converts using <see cref="M:WPFUI.Converters.IconToStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> <see cref="T:WPFUI.Common.Icon"/> or <see cref="T:WPFUI.Common.IconFilled"/> to <see langword="string"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.IconToStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <see cref="T:WPFUI.Common.Icon"/> or <see cref="T:WPFUI.Common.IconFilled"/> to <see langword="string"/>.
+            <para>If the given value is <see langword="char"/> or <see langword="string"/> it will simply be returned as a <see langword="string"/>.</para>
+            </summary>
+            <returns><see langword="string"/> representing <see cref="T:WPFUI.Common.Icon"/> or <see cref="T:WPFUI.Common.IconFilled"/>.</returns>
+        </member>
+        <member name="M:WPFUI.Converters.IconToStringConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not Implemented.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:WPFUI.Converters.ProgressThicknessConverter">
+            <summary>
+            Converts Height to Thickness.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.ProgressThicknessConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Checks if the <see cref="T:WPFUI.Common.Icon"/> is valid and not empty.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.ProgressThicknessConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not Implemented.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:WPFUI.Converters.TextToAsteriskConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts <see langword="string"/> to <see langword="*"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Converters.TextToAsteriskConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not Implemented.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:WPFUI.Styles.Controls.ContextMenu">
+            <summary>
+            ContextMenu
+            </summary>
+        </member>
+        <member name="M:WPFUI.Styles.Controls.ContextMenu.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WPFUI.Styles.Controls.Menu">
+            <summary>
+            Menu
+            </summary>
+        </member>
+        <member name="M:WPFUI.Styles.Controls.Menu.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WPFUI.Syntax.Highlighter">
+            <summary>
+            Formats a string of code into <see cref="T:System.Windows.Controls.TextBox"/> control.
+            <para>Implementation and regex patterns inspired by <see href="https://github.com/antoniandre/simple-syntax-highlighter"/>.</para>
+            </summary>
+        </member>
+        <member name="T:WPFUI.Taskbar.Progress">
+            <summary>
+            Allows to change the status of the displayed notification in the application icon on the TaskBar.
+            <para>
+            Based on the work of <see href="https://wpf.2000things.com/2014/03/19/1032-show-progress-on-windows-taskbar-icon/">Sean Sexton</see>.
+            </para>
+            </summary>
+        </member>
+        <member name="M:WPFUI.Taskbar.Progress.SetState(WPFUI.Taskbar.ProgressState,System.Boolean)">
+            <summary>
+            Allows to change the status of the progress bar in the task bar.
+            </summary>
+            <param name="state">State of the progress indicator.</param>
+            <param name="dispatchInvoke">Run with the main <see cref="T:System.Windows.Application"/> thread.</param>
+        </member>
+        <member name="M:WPFUI.Taskbar.Progress.SetValue(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Allows to change the fill of the task bar.
+            </summary>
+            <param name="current">Current value to display</param>
+            <param name="max">Maximum number for division.</param>
+            <param name="dispatchInvoke">Run with the main <see cref="T:System.Windows.Application"/> thread.</param>
+        </member>
+        <member name="T:WPFUI.Taskbar.ProgressState">
+            <summary>
+            Specifies the state of the progress indicator in the Windows taskbar.
+            <see href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.shell.taskbaritemprogressstate?view=windowsdesktop-5.0"/>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Taskbar.ProgressState.None">
+            <summary>
+            No progress indicator is displayed in the taskbar button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Taskbar.ProgressState.Indeterminate">
+            <summary>
+            A pulsing green indicator is displayed in the taskbar button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Taskbar.ProgressState.Normal">
+            <summary>
+            A green progress indicator is displayed in the taskbar button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Taskbar.ProgressState.Error">
+            <summary>
+            A red progress indicator is displayed in the taskbar button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Taskbar.ProgressState.Paused">
+            <summary>
+            A yellow progress indicator is displayed in the taskbar button.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Tray.NotifyIcon">
+            <summary>
+            Specifies a component that creates an icon in the notification area.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.Uid">
+            <summary>
+            Shell32 notify icon identifier.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.IsInitialized">
+            <summary>
+            Gets value inidicating whether the icon was initialized.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.Parent">
+            <summary>
+            Visual parent of <see cref="T:WPFUI.Tray.NotifyIcon"/> which handles HWND messages.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.Icon">
+            <summary>
+            BitmapSource of tray icon.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.Tooltip">
+            <summary>
+            Gets or sets the ToolTip text displayed when the mouse pointer rests on a notification area icon.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.ContextMenu">
+            <summary>
+            Menu displayed when left click.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.Click">
+            <summary>
+            The action triggered by a left click of the mouse.
+            </summary>
+        </member>
+        <member name="P:WPFUI.Tray.NotifyIcon.DoubleClick">
+            <summary>
+            The action triggered by a double-click with the left mouse button.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.Finalize">
+            <summary>
+            Called on finalizing.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.Show">
+            <summary>
+            Loads <see cref="P:WPFUI.Tray.NotifyIcon.Icon"/> into memory, then displays it in the system tray.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.Destroy">
+            <summary>
+            Removes icon.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.Dispose">
+            <summary>
+            Called on finalizing.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.ShowContextMenu">
+            <summary>
+            Displays the tray menu if defined.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.HwndSourceHook(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Represents the method that handles Win32 window messages.
+            </summary>
+            <param name="hWnd">The window handle.</param>
+            <param name="uMsg">The message ID.</param>
+            <param name="wParam">The message's wParam value.</param>
+            <param name="lParam">The message's lParam value.</param>
+            <param name="handled">A value that indicates whether the message was handled. Set the value to <see langword="true"/> if the message was handled; otherwise, <see langword="false"/>.</param>
+            <returns>The appropriate return value depends on the particular message. See the message documentation details for the Win32 message being handled.</returns>
+        </member>
+        <member name="M:WPFUI.Tray.NotifyIcon.GetHIcon(System.Windows.Media.ImageSource)">
+            <summary>
+            Gets <see cref="T:System.IntPtr"/> pointer to the allocated bitmap.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Dwmapi">
+            <summary>
+            Used by Desktop Window Manager (DWM)
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE">
+            <summary>
+            DWMWINDOWATTRIBUTE enumeration. (dwmapi.h)
+            <para><see href="https://github.com/electron/electron/issues/29937"/></para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_ALLOW_NCPAINT">
+            <summary>
+            Enables content rendered in the non-client area to be visible on the frame drawn by DWM.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_CAPTION_BUTTON_BOUNDS">
+            <summary>
+            Retrieves the bounds of the caption button area in the window-relative space.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_FORCE_ICONIC_REPRESENTATION">
+            <summary>
+            Forces the window to display an iconic thumbnail or peek representation (a static bitmap), even if a live or snapshot representation of the window is available.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_CLOAK">
+            <summary>
+            Cloaks the window such that it is not visible to the user.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_CLOAKED">
+            <summary>
+            If the window is cloaked, provides one of the following values explaining why.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_FREEZE_REPRESENTATION">
+            <summary>
+            Freeze the window's thumbnail image with its current visuals. Do no further live updates on the thumbnail image to match the window's contents.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE">
+            <summary>
+            Allows a window to either use the accent color, or dark, according to the user Color Mode preferences.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE">
+            <summary>
+            Controls the policy that rounds top-level window corners.
+            <para>Windows 11 and above.</para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_BORDER_COLOR">
+            <summary>
+            The color of the thin border around a top-level window.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_CAPTION_COLOR">
+            <summary>
+            The color of the caption.
+            <para>Windows 11 and above.</para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_TEXT_COLOR">
+            <summary>
+            The color of the caption text.
+            <para>Windows 11 and above.</para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_VISIBLE_FRAME_BORDER_THICKNESS">
+            <summary>
+            Width of the visible border around a thick frame window.
+            <para>Windows 11 and above.</para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE">
+            <summary>
+            Allows to enter a value from 0 to 4 deciding on the imposed backdrop effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT">
+            <summary>
+            Indicates whether the window should use the Mica effect.
+            <para>Windows 11 and above.</para>
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Dwmapi.DWMSBT">
+            <summary>
+            Collection of backdrop types.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMSBT.DWMSBT_AUTO">
+            <summary>
+            Automatically selects backdrop effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMSBT.DWMSBT_DISABLE">
+            <summary>
+            Turns off the backdrop effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMSBT.DWMSBT_MAINWINDOW">
+            <summary>
+            Sets Mica effect with generated wallpaper tint.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMSBT.DWMSBT_TRANSIENTWINDOW">
+            <summary>
+            Sets acrlic effect.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMSBT.DWMSBT_TABBEDWINDOW">
+            <summary>
+            Sets blurred wallpaper effect, like Mica without tint.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Dwmapi.PvAttribute">
+            <summary>
+            Abstraction of pointer to an object containing the attribute value to set. The type of the value set depends on the value of the dwAttribute parameter.
+            The DWMWINDOWATTRIBUTE enumeration topic indicates, in the row for each flag, what type of value you should pass a pointer to in the pvAttribute parameter.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.PvAttribute.Disable">
+            <summary>
+            Object containing the <see langowrd="false"/> attribute value to set in dwmapi.h. 
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.PvAttribute.Enable">
+            <summary>
+            Object containing the <see langowrd="true"/> attribute value to set in dwmapi.h. 
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS">
+            <summary>
+            Represents the current DWM color accent settings.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.clrColor">
+            <summary>
+            ColorizationColor
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.clrAfterGlow">
+            <summary>
+            ColorizationAfterglow.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.nIntensity">
+            <summary>
+            ColorizationColorBalance.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.clrAfterGlowBalance">
+            <summary>
+            ColorizationAfterglowBalance.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.clrBlurBalance">
+            <summary>
+            ColorizationBlurBalance.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.clrGlassReflectionIntensity">
+            <summary>
+            ColorizationGlassReflectionIntensity.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS.fOpaque">
+            <summary>
+            ColorizationOpaqueBlend.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.Dwmapi.DwmSetWindowAttribute(System.IntPtr,WPFUI.Win32.Dwmapi.DWMWINDOWATTRIBUTE,System.Int32@,System.Int32)">
+            <summary>
+            Sets the value of Desktop Window Manager (DWM) non-client rendering attributes for a window.
+            </summary>
+            <param name="hWnd">The handle to the window for which the attribute value is to be set.</param>
+            <param name="dwAttribute">A flag describing which value to set, specified as a value of the DWMWINDOWATTRIBUTE enumeration.</param>
+            <param name="pvAttribute">A pointer to an object containing the attribute value to set.</param>
+            <param name="cbAttribute">The size, in bytes, of the attribute value being set via the <c>pvAttribute</c> parameter.</param>
+            <returns>If the function succeeds, it returns <c>S_OK</c>. Otherwise, it returns an <c>HRESULT</c> error code.</returns>
+        </member>
+        <member name="M:WPFUI.Win32.Dwmapi.DwmGetColorizationParameters(WPFUI.Win32.Dwmapi.DWMCOLORIZATIONPARAMS@)">
+            <summary>
+            The feature is not included in the Microsoft documentation. Reads Desktop Window Manager (DWM) color information.
+            </summary>
+            <param name="dwParameters">A pointer to a reference value that will hold the color information.</param>
+        </member>
+        <member name="T:WPFUI.Win32.Gdi32">
+            <summary>
+            The Microsoft Windows graphics device interface (GDI) enables applications to use graphics and formatted text on both the video display and the printer.
+            Windows-based applications do not access the graphics hardware directly.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Gdip">
+            <summary>
+            Windows GDI+ exposes a flat API that consists of about 600 functions, which are implemented in Gdiplus.dll and declared in Gdiplusflat.h.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.HT">
+            <summary>
+            The return value of the DefWindowProc function is one of the following values, indicating the position of the cursor hot spot.
+            <para><see href="https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-nchittest"/></para>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.NOWHERE">
+            <summary>
+            On the screen background or on a dividing line between windows.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.CLIENT">
+            <summary>
+            In a client area.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.CAPTION">
+            <summary>
+            In a title bar.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.SYSMENU">
+            <summary>
+            In a window menu or in a Close button in a child window.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.GROWBOX">
+            <summary>
+            In a size box (same as HTSIZE).
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.MENU">
+            <summary>
+            In a menu.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.HSCROLL">
+            <summary>
+            In a horizontal scroll bar.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.VSCROLL">
+            <summary>
+            In the vertical scroll bar.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.MINBUTTON">
+            <summary>
+            In a Minimize button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.MAXBUTTON">
+            <summary>
+            In a Maximize button.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.LEFT">
+            <summary>
+            In the left border of a resizable window (the user can click the mouse to resize the window horizontally).
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.RIGHT">
+            <summary>
+            In the right border of a resizable window (the user can click the mouse to resize the window horizontally).
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.HT.TOP">
+            <summary>
+            In the upper-horizontal border of a window.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Kernel32">
+            <summary>
+            Windows kernel module.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.Kernel32.CopyMemory(System.IntPtr,System.IntPtr,System.UInt32)">
+            <summary>
+            Copies a block of memory from one location to another.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Shell32">
+            <summary>
+            Shell32 Namespace
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Shell32.STPF">
+            <summary>
+            Flags for SetTabProperties.  STPF_*
+            </summary>
+            <remarks>The native enum was called STPFLAG.</remarks>
+        </member>
+        <member name="T:WPFUI.Win32.Shell32.THB">
+            <summary>
+            THUMBBUTTON mask.  THB_*
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Shell32.THBF">
+            <summary>
+            THUMBBUTTON flags.  THBF_*
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.Shell32.THUMBBUTTON.THBN_CLICKED">
+            <summary>
+            WPARAM value for a THUMBBUTTON being clicked.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.Shell32.NOTIFYICONDATA">
+            <summary>
+            Contains information that the system needs to display notifications in the notification area. Used by <see cref="M:WPFUI.Win32.Shell32.Shell_NotifyIcon(System.Int32,WPFUI.Win32.Shell32.NOTIFYICONDATA)"/>.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.Shell32.Shell_NotifyIcon(System.Int32,WPFUI.Win32.Shell32.NOTIFYICONDATA)">
+            <summary>
+            Sends a message to the taskbar's status area.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.ShobjidlCore">
+            <summary>
+            This header is used by multiple technologies.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.UFlags.Icon">
+            <summary>
+                The hIcon member is valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.UFlags.Message">
+            <summary>
+                The uCallbackMessage member is valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.UFlags.ToolTip">
+            <summary>
+                The szTip member is valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.UFlags.State">
+            <summary>
+                The dwState and dwStateMask members are valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.UFlags.Balloon">
+            <summary>
+                Use a balloon ToolTip instead of a standard ToolTip. The szInfo, uTimeout, szInfoTitle, and dwInfoFlags members are
+                valid.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32">
+            <summary>
+            This header is used by multiple technologies.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.ACCENT_STATE">
+            <summary>
+            DWM window accent state.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.WINCOMPATTR">
+            <summary>
+            DWM window attributes.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.WS">
+            <summary>
+            The following are the window styles. After the window has been created, these styles cannot be modified, except as noted.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.WS.MAXIMIZEBOX">
+            <summary>
+            The window has a maximize button. Cannot be combined with the WS_EX_CONTEXTHELP style. The WS_SYSMENU style must also be specified.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.WS.MINIMIZEBOX">
+            <summary>
+            The window has a minimize button. Cannot be combined with the WS_EX_CONTEXTHELP style. The WS_SYSMENU style must also be specified.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.WS.SIZEBOX">
+            <summary>
+            The window is an overlapped window. Same as the WS_TILEDWINDOW style.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.WS.SYSMENU">
+            <summary>
+            The window has a window menu on its title bar. The WS_CAPTION style must also be specified.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.WM">
+            <summary>
+            Window message values, WM_*
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.ACCENT_POLICY">
+            <summary>
+            DWM window accent policy.
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.User32.POINT">
+            <summary>
+            The POINT structure defines the x- and y-coordinates of a point.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.POINT.X">
+            <summary>
+            Specifies the x-coordinate of the point.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.User32.POINT.Y">
+            <summary>
+            Specifies the y-coordinate of the point.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.GetCursorPos(WPFUI.Win32.User32.POINT@)">
+            <summary>
+            Retrieves the position of the mouse cursor, in screen coordinates.
+            </summary>
+            <param name="lpPoint">A <see cref="T:WPFUI.Win32.User32.POINT"/> structure that receives the screen coordinates of the cursor.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WPFUI.Win32.User32.SetWindowCompositionAttribute(System.IntPtr,WPFUI.Win32.User32.WINCOMPATTRDATA@)">
+            <summary>
+            Sets various information regarding DWM window attributes.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.SetForegroundWindow(System.Runtime.InteropServices.HandleRef)">
+            <summary>
+            Brings the thread that created the specified window into the foreground and activates the window.
+            Keyboard input is directed to the window, and various visual cues are changed for the user.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.GetSystemMetrics(System.Int32)">
+            <summary>
+            Retrieves the specified system metric or system configuration setting.
+            Note that all dimensions retrieved by GetSystemMetrics are in pixels.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.GetWindowLong(System.IntPtr,System.Int32)">
+            <summary>
+            Retrieves information about the specified window.
+            The function also retrieves the 32-bit (DWORD) value at the specified offset into the extra window memory.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.SetWindowLong(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            Changes an attribute of the specified window.
+            The function also sets the 32-bit (long) value at the specified offset into the extra window memory.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Sends the specified message to a window or windows.
+            The SendMessage function calls the window procedure for the specified window and does not return until the window procedure has processed the message.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.PostMessage(System.Runtime.InteropServices.HandleRef,WPFUI.Win32.User32.WM,System.IntPtr,System.IntPtr)">
+            <summary>
+            Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread to process the message.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.DefWindowProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Calls the default window procedure to provide default processing for any window messages that an application does not process.
+            This function ensures that every message is processed.
+            </summary>
+        </member>
+        <member name="M:WPFUI.Win32.User32.RegisterWindowMessage(System.String)">
+            <summary>
+            Defines a new window message that is guaranteed to be unique throughout the system. The message value can be used when sending or posting messages.
+            </summary>
+            <param name="lpString">The message to be registered.</param>
+        </member>
+        <member name="T:WPFUI.Win32.WinError">
+            <summary>
+            winerror.h
+            </summary>
+        </member>
+        <member name="T:WPFUI.Win32.WinError.HResult">
+            <summary>
+            Represent error conditions, and warning conditions.
+            <see href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/common-hresult-values"/>
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.S_OK">
+            <summary>
+            Operation successful.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_ABORT">
+            <summary>
+            Operation aborted.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_ACCESSDENIED">
+            <summary>
+            General access denied error.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_FAIL">
+            <summary>
+            Unspecified failure.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_HANDLE">
+            <summary>
+            Handle that is not valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_INVALIDARG">
+            <summary>
+            One or more arguments are not valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_NOINTERFACE">
+            <summary>
+            No such interface supported.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_NOTIMPL">
+            <summary>
+            Not implemented.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_OUTOFMEMORY">
+            <summary>
+            Failed to allocate necessary memory.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_POINTER">
+            <summary>
+            Pointer that is not valid.
+            </summary>
+        </member>
+        <member name="F:WPFUI.Win32.WinError.HResult.E_UNEXPECTED">
+            <summary>
+            Unexpected failure.
+            </summary>
+        </member>
+    </members>
+</doc>
